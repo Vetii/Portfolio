@@ -1,0 +1,38 @@
+<% content_for :title, "New experiment" %>
+<body>
+  <div class="row">
+    <div class="small-12 large-12 small-centered large-centered columns">
+      <h1>Experiment creator</h1>
+    </div>
+  </div>
+  <div class="row">
+    <%= form_for :post, url: experiments_path, class: "form" do |f|  %>
+      <div class="small-12 large-7 columns">
+        <p>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        </p>
+      </div>
+      <div class="small-12 large-5 columns">
+        <p>
+        <%= f.label :image %>
+        <%=  %>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 large-10   columns">
+        <p>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+        </p>
+      </div>
+      <div class="small-12 large-2   columns">
+        <p>
+        <%= f.label :Validation %>
+        <a href="#" class="button" onclick="$('form').submit()">Submit</a>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</body>
