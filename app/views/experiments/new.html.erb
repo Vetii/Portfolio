@@ -6,20 +6,30 @@
     </div>
   </div>
   <div class="row">
-    <%= form_for :post, url: experiments_path, class: "form" do |f|  %>
-      <div class="small-12 large-7 columns">
+    <%= form_for :post, url: experiments_path, class: "custom" do |f|  %>
+      <div class="small-12 large-12 columns">
         <p>
         <%= f.label :title %>
         <%= f.text_field :title %>
         </p>
       </div>
-      <div class="small-12 large-5 columns">
-        <p>
+
+      <div class="small-12 large-12 columns">
         <%= f.label :image %>
-        <%=  %>
-        </p>
+        <ul class="large-block-grid-4 small-block-grid-2">
+          <!-- Listing the files in app/assets/images/experiments -->
+          <% Dir.entries("#{Rails.root}/app/assets/images/experiments").each do |img|%>
+            <% if img=~/[^\.]+/ then %>
+              <li>
+              <%= image_tag "experiments/#{img}", :alt => img , :class => "th"%>
+              <%= f.radio_button :image, img %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
       </div>
     </div>
+
     <div class="row">
       <div class="small-12 large-10   columns">
         <p>

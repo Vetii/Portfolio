@@ -1,3 +1,4 @@
 <h1><%= @exp.title%></h1>
+<%= image_tag "experiments/#{@exp.image}", :alt => @exp.image %>
 <p><%= @exp.description %></p>
 <%= link_to "Back", experiments_path %>

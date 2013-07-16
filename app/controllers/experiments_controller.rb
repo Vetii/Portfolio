@@ -13,7 +13,7 @@ class ExperimentsController < ApplicationController
   
   def create
     #render text: params[:post].inspect
-     @exp = Experiment.new(params[:post].permit(:title, :description))
+     @exp = Experiment.new(params[:post].permit(:title, :description, :image))
  
      if @exp.save
        redirect_to @exp
@@ -29,7 +29,7 @@ class ExperimentsController < ApplicationController
   def update
     @exp = Experiment.find(params[:id])
 
-    if @exp.update(params[:post].permit(:title, :description))
+    if @exp.update(params[:post].permit(:title, :description, :image))
       redirect_to @exp
     else
       render :edit
@@ -46,6 +46,6 @@ class ExperimentsController < ApplicationController
   private
     def post_params
       #img_name = params[:post][:image].original_filename
-      params.require(:post).permit(:title, :description)
+      params.require(:post).permit(:title, :description, :image)
     end
 end
