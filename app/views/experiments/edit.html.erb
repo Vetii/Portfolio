@@ -6,9 +6,12 @@
     </div>
   </div>
 
-  <div class="row">
-    <%= form_for :post, url: experiment_path(@exp.id),  method: :patch do |f| %>
 
+  <%= form_for :post, url: experiment_path(@exp.id),  method: :patch do |f| %>
+    <!-- First row -->
+    <div class="row">
+
+      <!-- handling errors -->
       <% if @exp.errors.any? %>
         <div id="errorExplanation">
           <h2><%= pluralize(@exp.errors.count, "error") %>
@@ -21,49 +24,80 @@
         </div>
       <% end %> 
 
-      <div class="small-12 large-7 columns">
+      <!-- Experiment title -->
+      <div class="small-12 large-4 columns">
         <p>
         <%= f.label :title %>
         <%= f.text_field :title, value: @exp.title %>
         </p>
       </div>
-      <div class="small-12 large-5 columns">
-        <p>
+
+      <!-- Experiment image -->
+      <div class="small-12 large-4 columns">
         <%= f.label :image %>
         <ul class="large-block-grid-4 small-block-grid-2">
           <!-- Listing the files in app/assets/images/experiments -->
-          <% Dir.entries("#{Rails.root}/app/assets/images/experiments").each do |img|%>
-            <% if img=~/[^\.]+/ then %>
+          <% images = Dir.entries("#{Rails.root}/app/assets/images/experiments").delete_if { |img| img =~ /\.+/ } %>
+          <% if images.empty? then %>
+            <p>No image available</p>
+          <%  else %>
+            <% images.each do | img | %>
               <li>
+
               <%= image_tag "experiments/#{img}", :alt => img , :class => "th"%>
+
               <% if img == @exp.image then %>
                 <%= f.radio_button :image, img, :checked => true %>
               <% else %>
                 <%= f.radio_button :image, img %>
               <% end %>
 
-
               </li>
             <% end %>
           <% end %>
         </ul>
-        </p>
       </div>
+
+    <!-- Experiment source code -->
+    <div class="small-12 large-4 columns">
+      <%= f.label :source_code %>
+      <!-- listing the files in app/assets/PDEs -->
+      <ul>
+        <% pdes = Dir.entries("#{Rails.root}/app/assets/PDEs").delete_if { |pde| pde =~ /\.+/ } %>
+        <% if pdes.empty? then %>
+          <p>No PDE available</p>
+        <%  else %>
+          <% pdes.each do |pde|%>
+            <li>
+            <p><%= pde %></p>
+            <% if pde == @exp.source_code then %>
+              <%= f.radio_button :source_code, pde, :checked => true %>
+            <% else %>
+              <%= f.radio_button :source_code, pde %>
+            <% end %> 
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
     </div>
-    <div class="row">
-      <div class="small-12 large-10   columns">
-        <p>
-        <%= f.label :description %>
-        <%= f.text_area :description, value: @exp.description%>
-        </p>
-      </div>
-      <div class="small-12 large-2   columns">
-        <p>
-        <%= f.label :Validation %>
-        <%= f.submit :Send%>
-        </p>
-      </div>
-    <% end %>
   </div>
-  <%= link_to "back to experiments", experiments_path %>
+
+  <div class="row">
+    <div class="small-12 large-10   columns">
+      <p>
+      <%= f.label :description %>
+      <%= f.text_area :description, value: @exp.description%>
+      </p>
+    </div>
+    <!-- Experiment validation -->
+    <div class="small-12 large-2   columns">
+      <p>
+      <%= f.label :Validation %>
+      <a href="#" class="button" onclick="$('form').submit()">Submit</a>
+      </p>
+    </div>
+  </div>
+<% end %> 
+
+<%= link_to "back to experiments", experiments_path %>
 </body>

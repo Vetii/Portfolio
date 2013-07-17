@@ -9,6 +9,10 @@ Portfolio::Application.routes.draw do
   # redirect welcome/index to welcome.
   get 'welcome/index(.:format)' => 'welcome#index', as: :welcome
 
+  # redirect welcome/login to login page 
+  get 'welcome/login(.:format)' => 'welcome#login', as: :login
+  post 'welcome/login(.:format)' => 'welcome#log'
+
   # redirecting experiments/new to the new view.
   get 'experiments/new(.:format)' => 'experiments#new'
   # redirecting experiments/:id to the "show" view

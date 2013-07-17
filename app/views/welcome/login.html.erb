@@ -1,0 +1,30 @@
+<% content_for :title, "Login" %>
+<div class="row">
+<h1>Login</h1>
+</div>
+
+<% if @usr != nil then %>
+  <div class="row">
+    <div data-alert class="alert-box alert">
+      <h4> Login failed: </h4>
+      <p>Wrong username/password combination: 
+      <b><%= @usr[:login] %></b>/<b><%= @usr[:password] %></b>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<%= form_for :post, url: "#" do |f| %>
+  <div class="row">
+    <%= f.label :login %>
+    <%= f.text_field :login %>
+  </div>
+  <div class="row">
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+  <div class="row">
+    <a href="#" class="button" onclick="$('form').submit()">Submit</a>
+  </div>
+<% end %>
+
