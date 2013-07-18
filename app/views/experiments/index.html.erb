@@ -1,7 +1,5 @@
 <% content_for :title, "Experiments" %>
 
-
-
 <div class="row panel">
   <div class="large-12 small-12 small-centered large-centered columns">
     <h1>Experiments:</h1>
@@ -14,21 +12,29 @@
 
         <!-- Buttons -->
         <div class="large-8 columns">
-          <p><%= x.description%>
-          <ul class="button-group">
-            <li><%= link_to "...", experiment_path(x), class: "button"%></li>
-            <li><%= link_to "Edit", edit_experiment_path(x), class: "button"%></li>
-            <li><%= link_to "DELETE!", experiment_path(x), class: "button", method: :delete, data: {confirm: 'Are you sure?' } %></li>
-          </ul>
+          <p><%= x.description %>
+
+          <% if session[:login] then %>
+            <ul class="button-group">
+              <li><%= link_to "...", experiment_path(x), class: "button"%></li>
+              <li><%= link_to "Edit", edit_experiment_path(x), class: "button"%></li>
+              <li><%= link_to "DELETE!", experiment_path(x), class: "button", method: :delete, data: {confirm: 'Are you sure?' } %></li>
+            </ul>
+          <% else %>
+            <%= link_to "...", experiment_path(x), class: "button"%>
+          <% end %>
           </p>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+<!-- Adding a new experiment, Only if logged! -->
+<% if session[:login] then %>
 <div class="row">
   <div class="large-3 large-centered columns">
     <%= link_to 'add a new experiment', new_experiment_path , class: "button"%>
   </div>
 </div>
+<% end %>
 

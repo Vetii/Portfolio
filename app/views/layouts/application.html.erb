@@ -19,29 +19,35 @@
     <%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
+
   </head>
 
   <body>
     <!-- Navigation topbar -->
-    <nav class="top-bar hide-to-small expanded">
+    <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
       <h1><%= link_to "Portfolio", root_path %></h1>
       </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
     <section class="top-bar-section">
     <ul class="left">
       <li class="divider"></li>
       <li> <%= link_to "Experiments", experiments_path %> </li>
       <li class="divider"></li>
-      <li> <%= link_to "Curriculum Vitae", "#"  %> </li>
+      <li> <%= link_to "Curriculum Vitae", resume_path %> </li>
       <li class="divider"></li>
-      <li> <%= link_to "Contact info", "#" %> </li>
+      <li> <%= link_to "Contact info", contact_path %> </li>
       <li class="divider"></li>
     </ul>
     <ul class="right">
-      <li>
-      <%= link_to "Login", login_path %>
+      <li class="has-form">
+      <% if session[:login] then %>
+        <%= link_to "Unlogin", login_path, class: "button", method: :delete %>
+      <% else %>
+        <%= link_to "Login", login_path %>
+      <% end %>
       </li>
     </ul>
     </section>
@@ -49,11 +55,14 @@
 
     <%= yield %>
     
+    <!-- page footer -->
     <div class="row">
-      <div class="large-2 small-2 small-centered large-centered columns">
-        <%= link_to "main page", welcome_path%>
+      <div class="large-2 small-2 columns">
+        <i>Built with Foundation/Rails</i>
       </div>
-    </div>
+      <div class="large-2 small-2 columns">
+        <%= link_to "Main page", welcome_path%>
+      </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
