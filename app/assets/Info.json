@@ -1,0 +1,9 @@
+{ "first_name":"John",
+  "last_name":"Smith",
+  "birth_day":10,
+  "birth_month":"September",
+  "birth_year":"1991",
+  "birth_place":"Kiev",
+  "nationality":"French",
+  "description":"Information Technology Student" 
+}
