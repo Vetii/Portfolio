@@ -1,0 +1,7 @@
+[
+  { "country":"Sweden", "why":"ERASMUS Trip (six months)", "did":true },
+  { "country":"Norway", "why":"", "did":true },
+  { "country":"Finland", "why":"", "did":false },
+  { "country":"Germany", "why":"", "did":true },
+  { "country":"Iceland", "why":"", "did":false }
+]

@@ -1,16 +1,18 @@
 [
 {
-  "month_start":"",
-  "month_end":"",
-  "company":"",
-  "location":"",
-  "type":"intership"
+  "description":"Database interface development",
+  "month_start":"May 2011",
+  "month_end":"June 2011",
+  "company":"AB Connect",
+  "location":"Aix en Provence",
+  "type":"internship"
 },
 {
+  "description":"Particle engine in C++",
   "month_start":"",
   "month_end":"",
   "company":"",
-  "location":"",
+  "location":"France",
   "type":"personal project"
 }
 ]

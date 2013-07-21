@@ -1,11 +1,27 @@
 [
-{
-  "title":"Haskell",
-  
-  "value":75
-},
-{
-  "title":"Ruby",
-  "value":14
+{ "section":"Programming", "items":
+  [ { "title":"Haskell", "level":4 }, 
+    { "title":"C/C++", "level":5 },
+    { "title":"HTML/CSS/JS", "level": 4 },
+    { "title":"Ruby", "level":3 } ]
+}, 
+{ "section":"Database Design", "items":
+  [ { "title":"Merise", "level":2 },
+    { "title":"SQL", "level":4},
+    { "title":"No-SQL", "level":1 } ]
+}, 
+{ "section":"Software/OS", "items":
+  [ { "title":"Vim", "level":5 },
+    { "title":"Linux","level":5 },
+    { "title":"Eclipse", "level":4 },
+    { "title":"Valgrind", "level":3 },
+    { "title":"GNU Debugger", "level":3 } ]
+}, 
+{ "section": "Frameworks", "items":
+  [ { "title":"Processing", "level":4 },
+    { "title":"Cinder", "level":3 },
+    { "title":"OpenFrameworks", "level":4 },
+    { "title":"Ruby On Rails", "level":4 },
+    { "title":"Foundation", "level":5 } ]
 }
 ]
