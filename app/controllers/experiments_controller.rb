@@ -1,6 +1,10 @@
 class ExperimentsController < ApplicationController
   def new
-    @exp = Experiment.new
+    if session[:login] then
+      @exp = Experiment.new
+    else
+      redirect_to experiments_path
+    end
   end
 
   def index
@@ -24,6 +28,9 @@ class ExperimentsController < ApplicationController
 
   def edit
     @exp = Experiment.find(params[:id])
+    if !session[:login] then
+      redirect_to @exp
+    end
   end
 
   def update

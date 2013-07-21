@@ -2,17 +2,21 @@
 <!-- body content here -->
 <div class="row panel">
   <div class="large-3 small-12 columns">
-    <div class="large-12 small-6 small-centered columns">
+    <div class="large-8 small-6 small-centered columns">
       <%= image_tag "Avatar.jpg", :alt => "avatar" %>
     </div>
   </div>
   <div class="large-9 small-12 columns">
     <h1>Hello!</h1>
-    <p> I am <b>Noric Couderc</b>, a French, <%= Date.today.year - 1991 %> years old IT student, and this is my portfolio.
-    I'm interested in Computer Science, Art, Photography, Literature, Coffee, Liquorice, Heavy Metal, Nordic
+    <p> I am <b><%= "#{@info['first_name']} #{@info['last_name']}" %></b>, 
+    a <%= @info['nationality'] %>, <%= Date.today.year - @info['birth_year'].to_i%> 
+    years old <%= @info['description'] %>,
+    and this is my portfolio.  I'm interested in Computer Science, 
+    Art, Photography, Literature, Coffee, Liquorice, Heavy Metal, Nordic
     Countries, and Nature.
     Feel free to check my <%= link_to "Experiments", controller: "experiments"%>, my <%= link_to "resume", resume_path %>
     or try to <%= link_to "contact me", contact_path %>.
     </p>
   </div>
 </div>
+

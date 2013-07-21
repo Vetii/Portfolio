@@ -1,3 +1,23 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$primary-color: #129944;
+
+h1 {
+}
+h1:hover {
+  /*  background-color:$primary-color; */
+  padding-left:20px;
+}
+
+h2 {
+}
+
+h2:hover {
+  /* background-color:$primary-color; */
+  padding-left:20px;
+}
+
+ul {
+  list-style-type:none;
+}

@@ -1,4 +1,205 @@
 <%= content_for :title, "Curriculum Vitae" %>
 <div class="row panel">
-  <h1>Curriculum Vitae</h1>
+  <!-- Header  -->
+  <div id="header" class="row">
+    <div class="large-2 small-12 columns" id="image">
+      <%= image_tag "Avatar.jpg", alt: "Avatar" %>
+    </div>
+
+    <!-- @info sturcture:
+    first_name,
+    last_name,
+    birth_day,
+    birth_month,
+    birth_year,
+    birth_place,
+    nationality,
+    description
+    email,
+    -->
+    <div class="large-6 columns">
+      <div>
+        <h1><%= "#{@info['first_name']} #{@info['last_name']}" %></h1>
+        <h3><%= @info['description'] %></h3>
+      </div>
+    </div>
+
+    <div class="large-4 small-12 columns">
+      <ul class="vcard">
+        <li class="street-address">
+        <b>Birth Date:</b>
+        <%= @info['birth_day']%>th of 
+        <%= "#{@info['birth_month']} #{@info['birth_year']}" %>
+        </li>
+        <li>
+        <b>Birth Place:</b> 
+        <%= @info['birth_place'] %>
+        </li>
+        <li>
+        <b>Nationality:</b>
+        <%= @info['nationality'] %>
+        </li>
+        <li>
+        <b>E-Mail:</b>
+        <%= link_to @info['email'], "mailto:#{@info['email']}" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="row">
+
+    <!-- Three parts -->
+    <!-- First, Education/Experience -->
+    <div class="large-4 columns">
+
+      <!-- Education ... -->
+      <!-- @edu structure:
+      beginning_y,
+      end_y,
+      title,
+      location
+      -->
+      <div class="row">
+        <div id="edu" class="large-12 columns">
+          <h2>Education</h2>
+          <% @edu.each do |year| %>
+            <div id="name" class="row">
+              <div id="name" class="large-5 small-4 columns">
+                <h5>
+                  <%= "#{year['beginning_y']}-#{year['end_y']}" %>:
+                </h5> 
+              </div>
+              <div id="name" class="large-4 small-4 columns">
+                <p>
+                <%= year['title'] %>
+                </p>
+              </div>
+              <div id="name" class="large-3 small-4 columns">
+                <p>
+                <i>
+                  <%= year['location'] %>
+                </i>
+                </p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+
+      <!-- Experience -->
+      <!-- @exp stucture:
+      description,
+      month_start,
+      month_end,
+      company,
+      location,
+      type
+      -->
+      <div class="row">
+        <div id="edu" class="large-12 columns">
+          <h2 id"experience">Experience and projects</h2>
+          <div id="" class="large-12 columns">
+            <div class="row">
+              <% @exp.each do |ex| %>
+                <h4>
+                  <%= ex['description'] %>
+                </h4>
+                <p>
+                <i><%= ex['type'] %></i>
+                </p>
+                <p>
+                <% if !ex['month_start'].empty? && !ex['month_end'].empty? %>
+                  From <%= ex['month_start'] %> to <%= ex['month_end'] %>                 
+                <% end %>
+                </p>
+                <p>
+                <% if !ex['company'].empty? %>
+                    <b></b> <%= ex['company'] %>
+                    <i><%="(#{ex['location']})" %></i>
+                <% end %>
+                </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- First column -->
+
+    <!-- Second column, Skills -->
+    <!-- @skills stucture:
+    section
+    items => array of:
+    title, value
+    -->
+    <div class="large-4 columns">
+      <div id="skills" class="row">
+        <div id="skills" class="large-12 columns">
+          <h2>Skills</h2>
+          <% @skills.each do |section| %>
+            <h4>
+              <%= section['section'] %>
+            </h4>
+            <div id="listskills" class="large-10 large-centered columns">
+              <ul>
+                <% section['items'].each do |skill|%>
+                  <li>
+                  <%= "#{skill['title']}: #{skill['level']}/5" %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Third, Interests and languages -->
+    <div class="large-4 columns">
+      <div  class="large-12 columns">
+        <div id="" class="row">
+          <h2>Interests</h2>
+          <ul class="small-block-grid-2">
+            <% @interests.each do |interest| %>
+              <li><%= interest %></li>
+            <% end %>
+          </ul>
+        </div><!-- interests -->
+
+      <!-- Languages -->
+      <div id="languages" class="row">
+        <h2>Languages</h2>
+        <div id="list" class="large-10 large-centered columns">
+          <ul>
+            <% @languages.each do |lang| %>
+              <li>
+              <%= "#{lang['lang']}: #{lang['level']}" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Trips -->
+      <div class="row">
+        <h2>Places lived and travelled</h2>
+        <ul class="small-block-grid-2">
+          <% @trips.each do |trip| %>
+            <li>
+            <p>
+            <b><%= trip['country'] %></b>
+            <% if !trip['why'].empty? %>
+              <i><%= trip['why'] %></i>
+            <% end %>
+            </p>
+            </li>
+          <% end %>
+        </ul>
+      </div><!-- trips -->
+      </div>
+    </div>
+  </div>
 </div>

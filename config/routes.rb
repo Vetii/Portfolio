@@ -7,11 +7,19 @@ Portfolio::Application.routes.draw do
   root 'welcome#index'
 
   # redirect welcome/index to welcome.
-  get 'welcome/index(.:format)' => 'welcome#index', as: :welcome
+  get '/index(.:format)' => 'welcome#index', as: :welcome
 
   # redirect welcome/login to login page 
-  get 'welcome/login(.:format)' => 'welcome#login', as: :login
-  post 'welcome/login(.:format)' => 'welcome#log'
+  get '/login(.:format)' => 'welcome#login', as: :login
+  post '/login(.:format)' => 'welcome#log'
+  delete '/login(.:format)' => 'welcome#unlog'
+
+  # redirect welcome/resume to Curriculum
+  get 'welcome/resume(.:format)' => 'welcome#curriculum'
+  get '/resume(.:format)' => 'welcome#curriculum', as: :resume
+
+  # redirect welcome/contact to contact info
+  get '/contact(.:format)' => 'welcome#contact', as: :contact
 
   # redirecting experiments/new to the new view.
   get 'experiments/new(.:format)' => 'experiments#new'

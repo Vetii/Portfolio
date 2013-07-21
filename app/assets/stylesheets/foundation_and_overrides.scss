@@ -16,7 +16,9 @@
 
 // We use these to control various global styles
 // $body-bg: #fff;
+$body-bg:#222;
 // $body-font-color: #222;
+$body-font-color:#ccc;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -29,6 +31,7 @@
 
 // We use these as default colors throughout
 // $primary-color: #2ba6cb;
+$primary-color: #129944;
 // $secondary-color: #e9e9e9;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
@@ -65,7 +68,7 @@
 // Grid Variables
 //
 
-// $row-width: 62.5em;
+ $row-width:85%;
 // $column-gutter: 1.875em;
 // $total-columns: 12;
 
@@ -671,6 +674,7 @@
 
 // We use these to control the background and border styles
 // $panel-bg: darken(#fff, 5%);
+$panel-bg:darken($body-bg, 5%);
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -685,6 +689,7 @@
 // We use these to set default font colors
 // $panel-font-color: #333;
 // $panel-font-color-alt: #fff;
+$panel-font-color-alt: #ccc;
 
 //
 // Pricing Table Variables
