@@ -6,5 +6,11 @@
   "birth_place":"Kiev",
   "nationality":"French",
   "description":"Information Technology Student",
-  "email":"john.smith@something.com"
+  "email":"john.smith@something.net",
+    "social": [
+    { "net":"facebook","account":"facebook"},
+    { "net":"twitter","account":"@twitter"},
+    { "net":"google","account":"john.smith@google.com"},
+    { "net":"github","account":"vetii"}
+  ]
 }

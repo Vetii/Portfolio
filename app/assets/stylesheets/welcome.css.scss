@@ -4,10 +4,10 @@
 $primary-color: #129944;
 
 h1 {
+
 }
 h1:hover {
   /*  background-color:$primary-color; */
-  padding-left:20px;
 }
 
 h2 {
@@ -15,9 +15,85 @@ h2 {
 
 h2:hover {
   /* background-color:$primary-color; */
-  padding-left:20px;
+}
+
+img.centered {
+  // center image \o/
+  display:block;
+  margin: 0 auto;
+}
+
+img.left {
+  margin: 0 0;
 }
 
 ul {
   list-style-type:none;
+}
+
+#contacts table {
+  width:300px;
+  display:block;
+  margin: 0 auto;
+}
+
+.bubbles {
+  margin: auto;
+  display:table;
+}
+
+.bubblerow {
+  display:table-row;
+  height:75px;
+}
+.bubblerow:hover {
+  div img,.flag {
+    transform:rotate(-35deg);
+  }
+
+  div a,strong {
+    opacity:1;
+    padding:10px;
+  }
+}
+
+.flag{
+  display:block;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background-size:cover;
+  background-position:center center;
+}
+
+.td {
+  display:table-cell;
+  vertical-align:middle;
+
+  div {
+    transition-duration:1s;    
+  }
+
+  img {
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    transition-duration:1s;    
+
+  }
+
+  strong {
+    opacity:0;
+    margin-left:10px;
+    transition-duration:1s;
+  }
+
+  a {
+    font-size:200%;
+    margin-left:10px;
+    opacity:0;
+    transition-duration:1s;
+  }
+
+
 }

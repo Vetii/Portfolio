@@ -41,6 +41,7 @@ class WelcomeController < ApplicationController
   end
 
   def contact
+    @info = parseJSON('Info.json')
   end
 
   private

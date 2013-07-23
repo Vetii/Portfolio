@@ -3,7 +3,7 @@
   <!-- Header  -->
   <div id="header" class="row">
     <div class="large-2 small-12 columns" id="image">
-      <%= image_tag "Avatar.jpg", alt: "Avatar" %>
+      <%= image_tag "Avatar.jpg", alt: "Avatar", class: "centered"  %>
     </div>
 
     <!-- @info sturcture:
@@ -17,30 +17,28 @@
     description
     email,
     -->
-    <div class="large-6 columns">
-      <div>
-        <h1><%= "#{@info['first_name']} #{@info['last_name']}" %></h1>
-        <h3><%= @info['description'] %></h3>
-      </div>
+    <div id="description" class="large-6 columns">
+      <h1><%= "#{@info['first_name']} #{@info['last_name']}" %></h1>
+      <h3><%= @info['description'] %></h3>
     </div>
 
     <div class="large-4 small-12 columns">
       <ul class="vcard">
         <li class="street-address">
-        <b>Birth Date:</b>
+        <strong>Birth Date:</strong>
         <%= @info['birth_day']%>th of 
         <%= "#{@info['birth_month']} #{@info['birth_year']}" %>
         </li>
         <li>
-        <b>Birth Place:</b> 
+        <strong>Birth Place:</strong> 
         <%= @info['birth_place'] %>
         </li>
         <li>
-        <b>Nationality:</b>
+        <strong>Nationality:</strong>
         <%= @info['nationality'] %>
         </li>
         <li>
-        <b>E-Mail:</b>
+        <strong>E-Mail:</strong>
         <%= link_to @info['email'], "mailto:#{@info['email']}" %>
         </li>
       </ul>
@@ -48,7 +46,7 @@
   </div>
 
   <!-- Body -->
-  <div class="row">
+  <div id="body" class="row">
 
     <!-- Three parts -->
     <!-- First, Education/Experience -->
@@ -117,7 +115,7 @@
                 </p>
                 <p>
                 <% if !ex['company'].empty? %>
-                    <b></b> <%= ex['company'] %>
+                    <strong></strong> <%= ex['company'] %>
                     <i><%="(#{ex['location']})" %></i>
                 <% end %>
                 </p>
@@ -186,15 +184,22 @@
       <!-- Trips -->
       <div class="row">
         <h2>Places lived and travelled</h2>
-        <ul class="small-block-grid-2">
+          <ul class="small-block-grid-3">
           <% @trips.each do |trip| %>
             <li>
-            <p>
-            <b><%= trip['country'] %></b>
-            <% if !trip['why'].empty? %>
-              <i><%= trip['why'] %></i>
-            <% end %>
-            </p>
+            <div class="bubblerow">
+              <div class="td">
+                <div class="flag" style="background-image:url('/assets/flags/<%=trip['country'].downcase%>.svg')">
+                <% if !trip['did'] %>
+                <% end %> 
+                </div>
+
+              </div>
+              <div class="td">
+                <strong><%= trip['country']%></strong>
+
+              </div>
+            </div>
             </li>
           <% end %>
         </ul>

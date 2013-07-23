@@ -12,8 +12,6 @@
  *= require_tree .
  *= require foundation_and_overrides
  */
-
-
 ul.vcard {
   background-color:rgba(200,200,200,0.1);
   border-color:rgba(200,200,200,0.15);
