@@ -17,14 +17,14 @@
     description
     email,
     -->
-    <div id="description" class="large-6 columns">
+    <div id="description" class="large-3 small-12 columns">
       <h1><%= "#{@info['first_name']} #{@info['last_name']}" %></h1>
       <h3><%= @info['description'] %></h3>
     </div>
 
-    <div class="large-4 small-12 columns">
+    <div class="large-3 small-12 columns">
       <ul class="vcard">
-        <li class="street-address">
+        <li>
         <strong>Birth Date:</strong>
         <%= @info['birth_day']%>th of 
         <%= "#{@info['birth_month']} #{@info['birth_year']}" %>
@@ -97,30 +97,40 @@
       type
       -->
       <div class="row">
-        <div id="edu" class="large-12 columns">
-          <h2 id"experience">Experience and projects</h2>
+        <div id="" class="large-12 columns">
+          <h2>Experience and projects</h2>
           <div id="" class="large-12 columns">
-            <div class="row">
-              <% @exp.each do |ex| %>
-                <h4>
-                  <%= ex['description'] %>
-                </h4>
-                <p>
-                <i><%= ex['type'] %></i>
-                </p>
-                <p>
-                <% if !ex['month_start'].empty? && !ex['month_end'].empty? %>
-                  From <%= ex['month_start'] %> to <%= ex['month_end'] %>                 
-                <% end %>
-                </p>
-                <p>
-                <% if !ex['company'].empty? %>
-                    <strong></strong> <%= ex['company'] %>
-                    <i><%="(#{ex['location']})" %></i>
-                <% end %>
-                </p>
-              <% end %>
-            </div>
+
+            <% @exp.each do |ex| %>
+              <div class="row experience">
+                <div class="expheader">
+                  <h4>
+                    <%= ex['title'] %>
+                  </h4>
+                  <i><%= ex['type'] %></i>
+                </div>
+                <div class="expbody">
+                  <% if !ex['company'].nil? %>
+                    Company:
+                    <b>
+                      <%= ex['company'] %>. 
+                    </b>
+                  <% end %>
+                  <% if !ex['description'].nil? %>
+                    <p><%= ex['description'] %></p>
+                  <% end %>
+                  <p>
+                  <% if !ex['month_start'].nil?  && !ex['month_end'].nil? %>
+                    <%= ex['month_start'] %> - <%= ex['month_end'] %>
+                    <% if !ex['location'].nil? %>
+                      | <i><%= ex['location'] %></i>
+                    <% end %>
+                  <% end %>
+                  </p>
+                </div>
+              </div>
+            <% end %>
+
           </div>
         </div>
       </div>
@@ -141,13 +151,13 @@
               <%= section['section'] %>
             </h4>
             <div id="listskills" class="large-10 large-centered columns">
-              <ul>
+              <p>
+                <% skills = Array.new %>
                 <% section['items'].each do |skill|%>
-                  <li>
-                  <%= "#{skill['title']}: #{skill['level']}/5" %>
-                  </li>
+                  <% skills << "#{skill['title']} " %>
                 <% end %>
-              </ul>
+                <%= skills.join(",\s"); %>
+              </p>
             </div>
           <% end %>
         </div>
@@ -156,8 +166,25 @@
 
 
     <!-- Third, Interests and languages -->
+    <!-- Languages -->
     <div class="large-4 columns">
       <div  class="large-12 columns">
+        <div id="languages" class="row">
+          <h2>Languages</h2>
+          <div id="list" class="large-10 large-centered columns">
+            <ul>
+              <% @languages.each do |lang| %>
+                <li>
+                <%= "#{lang['lang']}: #{lang['level']}" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interests --> 
+
+
         <div id="" class="row">
           <h2>Interests</h2>
           <ul class="small-block-grid-2">
@@ -167,43 +194,30 @@
           </ul>
         </div><!-- interests -->
 
-      <!-- Languages -->
-      <div id="languages" class="row">
-        <h2>Languages</h2>
-        <div id="list" class="large-10 large-centered columns">
-          <ul>
-            <% @languages.each do |lang| %>
+
+
+        <!-- Trips -->
+        <div class="row">
+          <h2>Places lived and travelled</h2>
+          <ul class="small-block-grid-2">
+            <% @trips.each do |trip| %>
               <li>
-              <%= "#{lang['lang']}: #{lang['level']}" %>
+              <div class="bubblerow">
+                <div class="td">
+                  <div class="flag" style="background-image:url('/assets/flags/<%=trip['country'].downcase%>.svg')">
+                    <% if !trip['did'] %>
+                    <% end %> 
+                  </div>
+
+                </div>
+                <div class="td">
+                  <strong><%= trip['country']%></strong>
+                </div>
+              </div>
               </li>
             <% end %>
           </ul>
-        </div>
-      </div>
-
-      <!-- Trips -->
-      <div class="row">
-        <h2>Places lived and travelled</h2>
-          <ul class="small-block-grid-3">
-          <% @trips.each do |trip| %>
-            <li>
-            <div class="bubblerow">
-              <div class="td">
-                <div class="flag" style="background-image:url('/assets/flags/<%=trip['country'].downcase%>.svg')">
-                <% if !trip['did'] %>
-                <% end %> 
-                </div>
-
-              </div>
-              <div class="td">
-                <strong><%= trip['country']%></strong>
-
-              </div>
-            </div>
-            </li>
-          <% end %>
-        </ul>
-      </div><!-- trips -->
+        </div><!-- trips -->
       </div>
     </div>
   </div>

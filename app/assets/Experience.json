@@ -1,18 +1,26 @@
 [
 {
-  "description":"Database interface development",
+  "title":"Database interface development",
   "month_start":"May 2011",
   "month_end":"June 2011",
   "company":"AB Connect",
   "location":"Aix en Provence",
-  "type":"internship"
+  "type":"internship",
+  "description":"A database interface built using Microsoft Silverlight"
 },
 {
-  "description":"Particle engine in C++",
-  "month_start":"",
-  "month_end":"",
-  "company":"",
+  "title":"Particle engine in C++",
   "location":"France",
-  "type":"personal project"
+  "type":"personal project",
+  "description":"I wanted to learn some C++ and use Openframeworks"
+},
+{
+  "title": "Personal portfolio",
+  "month_start":"July 2013",
+  "month_end":"...",
+  "location":"France",
+  "type":"personal project",
+  "description":"A good way to learn some HTML/CSS/JS in a creative way, and a good way to learn Ruby on rails"  
 }
+
 ]

@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $primary-color: #129944;
-
+$bubble-radius: 50px;
+$text-color:#ccc;
 h1 {
 
 }
@@ -11,10 +12,17 @@ h1:hover {
 }
 
 h2 {
+  background-color:#111;
+  padding:10px;
+  border-left:solid 5px $primary-color;
 }
 
 h2:hover {
-  /* background-color:$primary-color; */
+
+}
+
+#header {
+
 }
 
 img.centered {
@@ -23,19 +31,25 @@ img.centered {
   margin: 0 auto;
 }
 
-img.left {
-  margin: 0 0;
-}
-
 ul {
   list-style-type:none;
 }
 
-#contacts table {
-  width:300px;
-  display:block;
-  margin: 0 auto;
+div.experience {
+  .expheader {
+    i {
+      position:relative;
+      top:-0.5em;
+      opacity: 0.3;
+    }
+  }
+  .expbody {
+    line-height:1em;
+    margin: 0px 10px 0 10px
+  }
 }
+
+
 
 .bubbles {
   margin: auto;
@@ -45,9 +59,11 @@ ul {
 .bubblerow {
   display:table-row;
   height:75px;
+  min-width:150px;
 }
 .bubblerow:hover {
   div img,.flag {
+    z-index:1;
     transform:rotate(-35deg);
   }
 
@@ -59,8 +75,8 @@ ul {
 
 .flag{
   display:block;
-  width:50px;
-  height:50px;
+  width:$bubble-radius;
+  height:$bubble-radius;
   border-radius:50%;
   background-size:cover;
   background-position:center center;
@@ -70,16 +86,16 @@ ul {
   display:table-cell;
   vertical-align:middle;
 
+
   div {
     transition-duration:1s;    
   }
 
   img {
-    width:50px;
-    height:50px;
+    width:$bubble-radius;
+    height:$bubble-radius;
     border-radius:50%;
     transition-duration:1s;    
-
   }
 
   strong {
@@ -94,6 +110,4 @@ ul {
     opacity:0;
     transition-duration:1s;
   }
-
-
 }

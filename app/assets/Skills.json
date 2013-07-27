@@ -1,27 +1,44 @@
 [
-{ "section":"Programming", "items":
-  [ { "title":"Haskell", "level":4 }, 
-    { "title":"C/C++", "level":5 },
-    { "title":"HTML/CSS/JS", "level": 4 },
-    { "title":"Ruby", "level":3 } ]
+{ "section":"Programming", "level": 5, "items":
+  [
+    { "title":"C/C++" },
+    { "title":"Java" },
+    { "title":"C#" },
+    { "title":"Vala" },
+    { "title":"Ruby" },
+    { "title":"Haskell" }
+  ]
 }, 
-{ "section":"Database Design", "items":
-  [ { "title":"Merise", "level":2 },
-    { "title":"SQL", "level":4},
-    { "title":"No-SQL", "level":1 } ]
+{ "section":"Web design", "level":3, "items":
+  [
+  { "title":"Ruby On Rails"},
+  { "title":"HTML/CSS"},
+  { "title":"Javascript"}
+  ]
+},
+{ "section":"Database Design", "level": 2, "items":
+  [ 
+    { "title":"Merise" },
+    { "title":"No-SQL" },
+    { "title":"SQL"}
+  ]
 }, 
-{ "section":"Software/OS", "items":
-  [ { "title":"Vim", "level":5 },
-    { "title":"Linux","level":5 },
-    { "title":"Eclipse", "level":4 },
-    { "title":"Valgrind", "level":3 },
-    { "title":"GNU Debugger", "level":3 } ]
+{ "section":"Software/OS", "level": 4,"items":
+  [
+    { "title":"Eclipse" },
+    { "title":"GNU Debugger" },
+    { "title":"Linux" },
+    { "title":"Valgrind" },
+    { "title":"Vim" }
+  ]
 }, 
-{ "section": "Frameworks", "items":
-  [ { "title":"Processing", "level":4 },
-    { "title":"Cinder", "level":3 },
-    { "title":"OpenFrameworks", "level":4 },
-    { "title":"Ruby On Rails", "level":4 },
-    { "title":"Foundation", "level":5 } ]
+{ "section": "Frameworks", "level": 3, "items":
+  [
+    { "title":"Cinder" },
+    { "title":"Foundation" },
+    { "title":"OpenFrameworks" },
+    { "title":"Processing" },
+    { "title":"QT" }
+  ]
 }
 ]

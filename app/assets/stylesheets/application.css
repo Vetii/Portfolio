@@ -12,7 +12,33 @@
  *= require_tree .
  *= require foundation_and_overrides
  */
+
 ul.vcard {
   background-color:rgba(200,200,200,0.1);
   border-color:rgba(200,200,200,0.15);
+}
+
+@font-face {
+  font-family: 'Source sans';
+  src: url('SourceSansPro-Regular.otf');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Source sans bold';
+  src: url('SourceSansPro-Bold.otf');
+
+  font-weight: bold;
+  font-style: normal;
+}
+
+strong, b {
+  font-family: 'Source sans bold';
+}
+
+.top-bar {
+  font-family: 'Source sans bold';
 }

@@ -1,4 +1,4 @@
-Portfolio::Application.configure do
+Prtfolio::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -26,4 +26,8 @@ Portfolio::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  
+  # add route to fonts
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+  config.assets.precompile += %w (.svg .eot .woff .ttf)
 end
