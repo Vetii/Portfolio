@@ -1,4 +1,4 @@
-Prtfolio::Application.configure do
+Portfolio::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -29,5 +29,6 @@ Prtfolio::Application.configure do
   
   # add route to fonts
   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-  config.assets.precompile += %w (.svg .eot .woff .ttf)
+  #config.assets.precompile += %w (.svg .eot .woff .ttf)
+
 end
